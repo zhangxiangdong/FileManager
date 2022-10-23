@@ -12,6 +12,7 @@ android {
     compileSdkVersion 33
 
     defaultConfig {
+        // screwdriver/wrench/vise/tape/plane/file ...
         applicationId "lab.wrench.filemanager"
         minSdkVersion 21
         targetSdkVersion 33
