@@ -55,17 +55,6 @@ class SettingsActivity : SimpleActivity() {
         ).forEach {
             it.setTextColor(getProperPrimaryColor())
         }
-
-        arrayOf(
-            settings_color_customization_holder,
-            settings_general_settings_holder,
-            settings_visibility_holder,
-            settings_scrolling_holder,
-            settings_file_operations_holder,
-            settings_security_holder
-        ).forEach {
-            it.background.applyColorFilter(getProperBackgroundColor().getContrastColor())
-        }
     }
 
     private fun setupCustomizeColors() {
