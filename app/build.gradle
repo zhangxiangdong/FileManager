@@ -12,7 +12,7 @@ android {
     compileSdkVersion 33
 
     defaultConfig {
-        applicationId "com.github.zhangxiangdong.filemanager"
+        applicationId "lab.wrench.filemanager"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode 127
