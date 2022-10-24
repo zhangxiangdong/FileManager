@@ -4,8 +4,10 @@ buildscript {
     ext.kotlin_version = '1.7.20'
 
     repositories {
+        maven { url uri("$rootProject.rootDir/.local") }
         mavenCentral()
         google()
+        maven { url "https://jitpack.io" }
     }
 
     dependencies {
@@ -19,6 +21,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url uri("$rootProject.rootDir/.local") }
         mavenCentral()
         google()
         maven { url "https://jitpack.io" }
