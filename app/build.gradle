@@ -68,7 +68,7 @@ dependencies {
     implementation 'com.github.tibbi:AndroidPdfViewer:da57ff410e'
     implementation 'com.github.Stericson:RootTools:df729dcb13'
     implementation 'com.github.Stericson:RootShell:1.6'
-    implementation 'com.alexvasilkov:gesture-views:2.5.2'
+    implementation 'com.alexvasilkov:gesture-views:2.8.3'
     implementation 'androidx.documentfile:documentfile:1.0.1'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'me.grantland:autofittextview:0.2.1'
