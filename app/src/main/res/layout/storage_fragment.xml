@@ -11,15 +11,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/storage_holder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             tools:ignore="HardcodedText,RelativeOverlap">
 
             <RelativeLayout
                 android:id="@+id/free_space_holder"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:paddingStart="@dimen/activity_margin"
@@ -31,8 +32,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="…"
-                    android:textSize="@dimen/storage_free_space_text_size"
-                    tools:text="23 GB" />
+                    android:textSize="@dimen/extra_big_text_size"
+                    android:textStyle="bold"
+                    tools:text="32 GB" />
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/free_space_label"
@@ -45,7 +47,8 @@
                     android:layout_toEndOf="@+id/free_space_value"
                     android:text="@string/storage_free"
                     android:textSize="@dimen/big_text_size"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    tools:visibility="visible" />
 
                 <com.google.android.material.progressindicator.LinearProgressIndicator
                     android:id="@+id/main_storage_usage_progressbar"
@@ -55,7 +58,8 @@
                     android:layout_marginTop="@dimen/medium_margin"
                     android:layout_marginBottom="@dimen/medium_margin"
                     android:max="100"
-                    app:trackThickness="4dp" />
+                    app:trackThickness="4dp"
+                    tools:progress="50" />
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/total_space"
@@ -63,27 +67,24 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/main_storage_usage_progressbar"
                     android:layout_marginBottom="@dimen/big_margin"
-                    android:textSize="@dimen/big_text_size"
+                    android:textSize="@dimen/normal_text_size"
                     tools:text="Total storage: 64 GB" />
+
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/images_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/free_space_holder"
                 android:background="?attr/selectableItemBackground"
-                android:paddingStart="@dimen/activity_margin"
-                android:paddingTop="@dimen/normal_margin"
-                android:paddingEnd="@dimen/activity_margin"
-                android:paddingBottom="@dimen/normal_margin">
+                android:padding="@dimen/activity_margin">
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/images_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/images"
-                    android:textSize="@dimen/bigger_text_size" />
+                    android:textSize="@dimen/normal_text_size" />
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/images_size"
@@ -92,37 +93,24 @@
                     android:layout_alignParentEnd="true"
                     android:alpha="0.7"
                     android:text="…"
-                    android:textSize="@dimen/normal_text_size"
+                    android:textSize="@dimen/small_text_size"
                     tools:text="20 GB" />
 
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/images_progressbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/images_label"
-                    android:layout_marginTop="@dimen/medium_margin"
-                    android:layout_marginBottom="@dimen/medium_margin"
-                    android:max="100"
-                    app:trackThickness="2dp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/videos_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/images_holder"
                 android:background="?attr/selectableItemBackground"
-                android:paddingStart="@dimen/activity_margin"
-                android:paddingTop="@dimen/normal_margin"
-                android:paddingEnd="@dimen/activity_margin"
-                android:paddingBottom="@dimen/normal_margin">
+                android:padding="@dimen/activity_margin">
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/videos_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/videos"
-                    android:textSize="@dimen/bigger_text_size" />
+                    android:textSize="@dimen/normal_text_size" />
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/videos_size"
@@ -131,37 +119,24 @@
                     android:layout_alignParentEnd="true"
                     android:alpha="0.7"
                     android:text="…"
-                    android:textSize="@dimen/normal_text_size"
+                    android:textSize="@dimen/small_text_size"
                     tools:text="20 GB" />
 
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/videos_progressbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/videos_label"
-                    android:layout_marginTop="@dimen/medium_margin"
-                    android:layout_marginBottom="@dimen/medium_margin"
-                    android:max="100"
-                    app:trackThickness="2dp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/audio_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/videos_holder"
                 android:background="?attr/selectableItemBackground"
-                android:paddingStart="@dimen/activity_margin"
-                android:paddingTop="@dimen/normal_margin"
-                android:paddingEnd="@dimen/activity_margin"
-                android:paddingBottom="@dimen/normal_margin">
+                android:padding="@dimen/activity_margin">
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/audio_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/audio"
-                    android:textSize="@dimen/bigger_text_size" />
+                    android:textSize="@dimen/normal_text_size" />
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/audio_size"
@@ -170,37 +145,24 @@
                     android:layout_alignParentEnd="true"
                     android:alpha="0.7"
                     android:text="…"
-                    android:textSize="@dimen/normal_text_size"
+                    android:textSize="@dimen/small_text_size"
                     tools:text="20 GB" />
 
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/audio_progressbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/audio_label"
-                    android:layout_marginTop="@dimen/medium_margin"
-                    android:layout_marginBottom="@dimen/medium_margin"
-                    android:max="100"
-                    app:trackThickness="2dp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/documents_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/audio_holder"
                 android:background="?attr/selectableItemBackground"
-                android:paddingStart="@dimen/activity_margin"
-                android:paddingTop="@dimen/normal_margin"
-                android:paddingEnd="@dimen/activity_margin"
-                android:paddingBottom="@dimen/normal_margin">
+                android:padding="@dimen/activity_margin">
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/documents_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/documents"
-                    android:textSize="@dimen/bigger_text_size" />
+                    android:textSize="@dimen/normal_text_size" />
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/documents_size"
@@ -209,37 +171,24 @@
                     android:layout_alignParentEnd="true"
                     android:alpha="0.7"
                     android:text="…"
-                    android:textSize="@dimen/normal_text_size"
+                    android:textSize="@dimen/small_text_size"
                     tools:text="20 GB" />
 
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/documents_progressbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/documents_label"
-                    android:layout_marginTop="@dimen/medium_margin"
-                    android:layout_marginBottom="@dimen/medium_margin"
-                    android:max="100"
-                    app:trackThickness="2dp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/archives_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/documents_holder"
                 android:background="?attr/selectableItemBackground"
-                android:paddingStart="@dimen/activity_margin"
-                android:paddingTop="@dimen/normal_margin"
-                android:paddingEnd="@dimen/activity_margin"
-                android:paddingBottom="@dimen/normal_margin">
+                android:padding="@dimen/activity_margin">
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/archives_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/archives"
-                    android:textSize="@dimen/bigger_text_size" />
+                    android:textSize="@dimen/normal_text_size" />
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/archives_size"
@@ -248,37 +197,24 @@
                     android:layout_alignParentEnd="true"
                     android:alpha="0.7"
                     android:text="…"
-                    android:textSize="@dimen/normal_text_size"
+                    android:textSize="@dimen/small_text_size"
                     tools:text="20 GB" />
 
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/archives_progressbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/archives_label"
-                    android:layout_marginTop="@dimen/medium_margin"
-                    android:layout_marginBottom="@dimen/medium_margin"
-                    android:max="100"
-                    app:trackThickness="2dp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/others_holder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/archives_holder"
                 android:background="?attr/selectableItemBackground"
-                android:paddingStart="@dimen/activity_margin"
-                android:paddingTop="@dimen/normal_margin"
-                android:paddingEnd="@dimen/activity_margin"
-                android:paddingBottom="@dimen/normal_margin">
+                android:padding="@dimen/activity_margin">
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/others_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/others"
-                    android:textSize="@dimen/bigger_text_size" />
+                    android:textSize="@dimen/normal_text_size" />
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/others_size"
@@ -287,19 +223,13 @@
                     android:layout_alignParentEnd="true"
                     android:alpha="0.7"
                     android:text="…"
-                    android:textSize="@dimen/normal_text_size"
+                    android:textSize="@dimen/small_text_size"
                     tools:text="20 GB" />
 
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/others_progressbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/others_label"
-                    android:layout_marginTop="@dimen/medium_margin"
-                    android:layout_marginBottom="@dimen/medium_margin"
-                    android:max="100"
-                    app:trackThickness="2dp" />
             </RelativeLayout>
-        </RelativeLayout>
+
+        </LinearLayout>
+
     </ScrollView>
+
 </com.simplemobiletools.filemanager.pro.fragments.StorageFragment>
