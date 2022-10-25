@@ -470,8 +470,8 @@ class MainActivity : SimpleActivity() {
 
     private fun getTabIcon(position: Int): Drawable {
         val drawableId = when (position) {
-            0 -> R.drawable.ic_folder_vector
-            1 -> R.drawable.ic_clock_vector
+            0 -> R.drawable.ic_clock_vector
+            1 -> R.drawable.ic_folder_vector
             else -> R.drawable.ic_storage_vector
         }
 
@@ -480,8 +480,8 @@ class MainActivity : SimpleActivity() {
 
     private fun getTabLabel(position: Int): String {
         val stringId = when (position) {
-            0 -> R.string.files_tab
-            1 -> R.string.recents
+            0 -> R.string.recents
+            1 -> R.string.files_tab
             else -> R.string.storage
         }
 
@@ -729,7 +729,7 @@ class MainActivity : SimpleActivity() {
 
     private fun getInactiveTabIndexes(activeIndex: Int) = (0 until getTabsList().size).filter { it != activeIndex }
 
-    private fun getAllFragments(): ArrayList<MyViewPagerFragment?> = arrayListOf(items_fragment, recents_fragment, storage_fragment)
+    private fun getAllFragments(): ArrayList<MyViewPagerFragment?> = arrayListOf(recents_fragment, items_fragment, storage_fragment)
 
     private fun getCurrentFragment(): MyViewPagerFragment? {
         val showTabs = config.showTabs

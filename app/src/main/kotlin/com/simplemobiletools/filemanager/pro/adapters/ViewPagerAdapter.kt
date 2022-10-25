@@ -37,12 +37,13 @@ class ViewPagerAdapter(val activity: SimpleActivity, val tabsToShow: ArrayList<I
     private fun getFragment(position: Int): Int {
         val showTabs = activity.config.showTabs
         val fragments = arrayListOf<Int>()
-        if (showTabs and TAB_FILES != 0) {
-            fragments.add(R.layout.items_fragment)
-        }
 
         if (showTabs and TAB_RECENT_FILES != 0) {
             fragments.add(R.layout.recents_fragment)
+        }
+
+        if (showTabs and TAB_FILES != 0) {
+            fragments.add(R.layout.items_fragment)
         }
 
         if (showTabs and TAB_STORAGE_ANALYSIS != 0) {
