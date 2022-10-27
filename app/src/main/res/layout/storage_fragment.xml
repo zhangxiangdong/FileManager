@@ -31,6 +31,7 @@
                     android:id="@+id/free_space_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="casual"
                     android:text="…"
                     android:textSize="@dimen/storage_free_space_text_size"
                     tools:text="23 GB" />
