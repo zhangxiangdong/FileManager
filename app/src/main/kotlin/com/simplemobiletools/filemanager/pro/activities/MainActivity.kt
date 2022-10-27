@@ -734,12 +734,13 @@ class MainActivity : SimpleActivity() {
     private fun getCurrentFragment(): MyViewPagerFragment? {
         val showTabs = config.showTabs
         val fragments = arrayListOf<MyViewPagerFragment>()
-        if (showTabs and TAB_FILES != 0) {
-            fragments.add(items_fragment)
-        }
 
         if (showTabs and TAB_RECENT_FILES != 0) {
             fragments.add(recents_fragment)
+        }
+
+        if (showTabs and TAB_FILES != 0) {
+            fragments.add(items_fragment)
         }
 
         if (showTabs and TAB_STORAGE_ANALYSIS != 0) {
