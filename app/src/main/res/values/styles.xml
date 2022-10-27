@@ -2,7 +2,7 @@
 
     <style name="AppTheme" parent="AppTheme.Base" />
 
-    <style name="fab_3_rounded">
+    <style name="Fab3Rounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
         <item name="cornerSizeBottomRight">0dp</item>

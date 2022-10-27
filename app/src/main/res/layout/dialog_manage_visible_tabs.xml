@@ -14,20 +14,22 @@
         android:paddingEnd="@dimen/activity_margin">
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
-            android:id="@+id/manage_visible_tabs_files"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/files_tab" />
-
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_visible_tabs_recent_files"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/recent_files_tab" />
+
+        <CheckBox
+            android:id="@+id/manage_visible_tabs_files"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:enabled="false"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
+            android:text="@string/files_tab" />
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_visible_tabs_storage_analysis"
@@ -38,4 +40,5 @@
             android:text="@string/storage_analysis" />
 
     </LinearLayout>
+
 </ScrollView>

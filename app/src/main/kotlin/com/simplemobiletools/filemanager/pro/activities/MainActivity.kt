@@ -749,7 +749,7 @@ class MainActivity : SimpleActivity() {
         return fragments.getOrNull(main_view_pager.currentItem)
     }
 
-    private fun getTabsList() = arrayListOf(TAB_FILES, TAB_RECENT_FILES, TAB_STORAGE_ANALYSIS)
+    private fun getTabsList() = arrayListOf(TAB_RECENT_FILES, TAB_FILES, TAB_STORAGE_ANALYSIS)
 
     private fun checkWhatsNewDialog() {
         arrayListOf<Release>().apply {
