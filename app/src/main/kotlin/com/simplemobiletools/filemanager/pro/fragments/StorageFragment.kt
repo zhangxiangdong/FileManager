@@ -51,32 +51,15 @@ class StorageFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         context.updateTextColors(storage_fragment)
 
         val properPrimaryColor = context.getProperPrimaryColor()
-        main_storage_usage_progressbar.setIndicatorColor(properPrimaryColor)
-        main_storage_usage_progressbar.trackColor = properPrimaryColor.adjustAlpha(0.3f)
+        val trackColor = properPrimaryColor.adjustAlpha(0.1f)
 
-        val redColor = context.resources.getColor(R.color.md_red_700)
-        images_progressbar.setIndicatorColor(redColor)
-        images_progressbar.trackColor = redColor.adjustAlpha(0.3f)
-
-        val greenColor = context.resources.getColor(R.color.md_green_700)
-        videos_progressbar.setIndicatorColor(greenColor)
-        videos_progressbar.trackColor = greenColor.adjustAlpha(0.3f)
-
-        val lightBlueColor = context.resources.getColor(R.color.md_light_blue_700)
-        audio_progressbar.setIndicatorColor(lightBlueColor)
-        audio_progressbar.trackColor = lightBlueColor.adjustAlpha(0.3f)
-
-        val yellowColor = context.resources.getColor(R.color.md_yellow_700)
-        documents_progressbar.setIndicatorColor(yellowColor)
-        documents_progressbar.trackColor = yellowColor.adjustAlpha(0.3f)
-
-        val tealColor = context.resources.getColor(R.color.md_teal_700)
-        archives_progressbar.setIndicatorColor(tealColor)
-        archives_progressbar.trackColor = tealColor.adjustAlpha(0.3f)
-
-        val pinkColor = context.resources.getColor(R.color.md_pink_700)
-        others_progressbar.setIndicatorColor(pinkColor)
-        others_progressbar.trackColor = pinkColor.adjustAlpha(0.3f)
+        arrayOf(
+            main_storage_usage_progressbar, images_progressbar, videos_progressbar, audio_progressbar, documents_progressbar,
+            archives_progressbar, others_progressbar
+        ).forEach {
+            it.setIndicatorColor(properPrimaryColor)
+            it.trackColor = trackColor
+        }
     }
 
     private fun launchMimetypeActivity(mimetype: String) {
