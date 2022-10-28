@@ -16,10 +16,10 @@
         android:name=".App"
         android:allowBackup="true"
         android:appCategory="productivity"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_light_blue"
         android:label="@string/app_launcher_name"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_light_blue"
         android:theme="@style/AppTheme">
 
         <activity
@@ -255,7 +255,7 @@
 
         <activity-alias
             android:name=".activities.SplashActivity.Light_blue"
-            android:enabled="false"
+            android:enabled="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher_light_blue"
             android:roundIcon="@mipmap/ic_launcher_light_blue"
@@ -367,7 +367,7 @@
 
         <activity-alias
             android:name=".activities.SplashActivity.Orange"
-            android:enabled="true"
+            android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:roundIcon="@mipmap/ic_launcher"
