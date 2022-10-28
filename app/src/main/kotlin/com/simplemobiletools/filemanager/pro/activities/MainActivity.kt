@@ -19,6 +19,7 @@ import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.viewpager.widget.ViewPager
@@ -52,9 +53,13 @@ import me.grantland.widget.AutofitHelper
 import java.io.File
 
 class MainActivity : SimpleActivity() {
-    private val BACK_PRESS_TIMEOUT = 5000
-    private val MANAGE_STORAGE_RC = 201
-    private val PICKED_PATH = "picked_path"
+
+    companion object {
+        private const val BACK_PRESS_TIMEOUT = 5000
+        private const val MANAGE_STORAGE_RC = 201
+        private const val PICKED_PATH = "picked_path"
+    }
+
     private var isSearchOpen = false
     private var wasBackJustPressed = false
     private var mIsPasswordProtectionPending = false
@@ -66,6 +71,13 @@ class MainActivity : SimpleActivity() {
     private var mStoredDateFormat = ""
     private var mStoredTimeFormat = ""
     private var mStoredShowTabs = 0
+
+    private val requestManageAllFilesAccessPermission = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        isAskingPermissions = false
+        if (isRPlus()) {
+            actionOnPermission?.invoke(Environment.isExternalStorageManager())
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -248,15 +260,6 @@ class MainActivity : SimpleActivity() {
         }
     }
 
-    @SuppressLint("NewApi")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        super.onActivityResult(requestCode, resultCode, resultData)
-        isAskingPermissions = false
-        if (requestCode == MANAGE_STORAGE_RC && isRPlus()) {
-            actionOnPermission?.invoke(Environment.isExternalStorageManager())
-        }
-    }
-
     private fun restorePath(path: String) {
         if (!mWasProtectionHandled) {
             handleAppPasswordProtection {
@@ -335,7 +338,6 @@ class MainActivity : SimpleActivity() {
         }
     }
 
-    @SuppressLint("InlinedApi")
     private fun handleStoragePermission(callback: (granted: Boolean) -> Unit) {
         actionOnPermission = null
         if (hasStoragePermission()) {
@@ -350,12 +352,14 @@ class MainActivity : SimpleActivity() {
                             val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
                             intent.addCategory("android.intent.category.DEFAULT")
                             intent.data = Uri.parse("package:$packageName")
-                            startActivityForResult(intent, MANAGE_STORAGE_RC)
+                            // startActivityForResult(intent, MANAGE_STORAGE_RC)
+                            requestManageAllFilesAccessPermission.launch(intent)
                         } catch (e: Exception) {
                             showErrorToast(e)
                             val intent = Intent()
                             intent.action = Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
-                            startActivityForResult(intent, MANAGE_STORAGE_RC)
+                            // startActivityForResult(intent, MANAGE_STORAGE_RC)
+                            requestManageAllFilesAccessPermission.launch(intent)
                         }
                     } else {
                         finish()
